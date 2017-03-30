@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+struct Node{
+    int data;
+    struct Node* next;
+}Node;
+
+struct Node* head;
+
+void insert(int x)
+{
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+    temp -> data = x;
+    temp -> next = head;
+    
+    head = temp;
+}
+
+void print()
+{
+    struct Node* temp = head;
+    printf("the list is\n");
+    while(temp != NULL)
+    {
+        printf("%d\n", temp -> data);
+        temp =  temp -> next;
+    }
+    printf("\n");
+    
+}
+
+int main()
+{
+    int n, i, a;
+    head = NULL;
+    printf("enter the number of elements\n");
+    scanf("%d", &n);
+    for(i = 0; i <n; i++)
+    {
+        printf("enter the numbers\n");
+        scanf("%d",&a);
+        insert(a);
+        print();
+    }
+    return 0;
+}
+
